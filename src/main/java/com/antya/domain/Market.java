@@ -6,8 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -48,27 +47,16 @@ public class Market implements Serializable {
     @Column(name = "is_active")
     private Integer isActive;
 
-    @Column(name = "commission")
-    private Long commission;
+    @Column(name = "commission", precision=10, scale=2)
+    private BigDecimal commission;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Coin marketCurrency;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Coin baseCurrency;
+    private Coin coin;
 
     @OneToOne
     @JoinColumn(unique = true)
     private Exchange exchange;
-
-    @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "market_market_price",
-               joinColumns = @JoinColumn(name="markets_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="market_prices_id", referencedColumnName="id"))
-    private Set<MarketPrice> marketPrices = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -183,43 +171,30 @@ public class Market implements Serializable {
         this.isActive = isActive;
     }
 
-    public Long getCommission() {
+    public BigDecimal getCommission() {
         return commission;
     }
 
-    public Market commission(Long commission) {
+    public Market commission(BigDecimal commission) {
         this.commission = commission;
         return this;
     }
 
-    public void setCommission(Long commission) {
+    public void setCommission(BigDecimal commission) {
         this.commission = commission;
     }
 
-    public Coin getMarketCurrency() {
-        return marketCurrency;
+    public Coin getCoin() {
+        return coin;
     }
 
-    public Market marketCurrency(Coin coin) {
-        this.marketCurrency = coin;
+    public Market coin(Coin coin) {
+        this.coin = coin;
         return this;
     }
 
-    public void setMarketCurrency(Coin coin) {
-        this.marketCurrency = coin;
-    }
-
-    public Coin getBaseCurrency() {
-        return baseCurrency;
-    }
-
-    public Market baseCurrency(Coin coin) {
-        this.baseCurrency = coin;
-        return this;
-    }
-
-    public void setBaseCurrency(Coin coin) {
-        this.baseCurrency = coin;
+    public void setCoin(Coin coin) {
+        this.coin = coin;
     }
 
     public Exchange getExchange() {
@@ -233,31 +208,6 @@ public class Market implements Serializable {
 
     public void setExchange(Exchange exchange) {
         this.exchange = exchange;
-    }
-
-    public Set<MarketPrice> getMarketPrices() {
-        return marketPrices;
-    }
-
-    public Market marketPrices(Set<MarketPrice> marketPrices) {
-        this.marketPrices = marketPrices;
-        return this;
-    }
-
-    public Market addMarketPrice(MarketPrice marketPrice) {
-        this.marketPrices.add(marketPrice);
-        marketPrice.getMarkets().add(this);
-        return this;
-    }
-
-    public Market removeMarketPrice(MarketPrice marketPrice) {
-        this.marketPrices.remove(marketPrice);
-        marketPrice.getMarkets().remove(this);
-        return this;
-    }
-
-    public void setMarketPrices(Set<MarketPrice> marketPrices) {
-        this.marketPrices = marketPrices;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

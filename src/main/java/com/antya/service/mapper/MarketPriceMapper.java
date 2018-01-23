@@ -8,11 +8,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity MarketPrice and its DTO MarketPriceDTO.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {ExchangeMapper.class, MarketMapper.class})
 public interface MarketPriceMapper extends EntityMapper<MarketPriceDTO, MarketPrice> {
 
+    @Mapping(source = "exchange.id", target = "exchangeId")
+    @Mapping(source = "market.id", target = "marketId")
+    MarketPriceDTO toDto(MarketPrice marketPrice);
 
-    @Mapping(target = "markets", ignore = true)
+    @Mapping(source = "exchangeId", target = "exchange")
+    @Mapping(source = "marketId", target = "market")
     MarketPrice toEntity(MarketPriceDTO marketPriceDTO);
 
     default MarketPrice fromId(Long id) {

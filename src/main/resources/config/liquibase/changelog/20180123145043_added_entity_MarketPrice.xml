@@ -22,11 +22,17 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="current_price" type="bigint">
+            <column name="current_price" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
 
             <column name="time_stamp" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+            <column name="exchange_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>
+            <column name="market_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

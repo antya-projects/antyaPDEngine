@@ -3,6 +3,7 @@ package com.antya.service.dto;
 
 import java.time.Instant;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -14,17 +15,17 @@ public class MarketDetailsDTO implements Serializable {
 
     private Long id;
 
-    private Long highPrice;
+    private BigDecimal highPrice;
 
-    private Long lowPrice;
+    private BigDecimal lowPrice;
 
-    private Long lastPrice;
+    private BigDecimal lastPrice;
 
-    private Long askPrice;
+    private BigDecimal askPrice;
 
-    private Long bidPrice;
+    private BigDecimal bidPrice;
 
-    private Long volume24hours;
+    private BigDecimal volume24hours;
 
     private Instant timeStamp;
 
@@ -42,51 +43,51 @@ public class MarketDetailsDTO implements Serializable {
         this.id = id;
     }
 
-    public Long getHighPrice() {
+    public BigDecimal getHighPrice() {
         return highPrice;
     }
 
-    public void setHighPrice(Long highPrice) {
+    public void setHighPrice(BigDecimal highPrice) {
         this.highPrice = highPrice;
     }
 
-    public Long getLowPrice() {
+    public BigDecimal getLowPrice() {
         return lowPrice;
     }
 
-    public void setLowPrice(Long lowPrice) {
+    public void setLowPrice(BigDecimal lowPrice) {
         this.lowPrice = lowPrice;
     }
 
-    public Long getLastPrice() {
+    public BigDecimal getLastPrice() {
         return lastPrice;
     }
 
-    public void setLastPrice(Long lastPrice) {
+    public void setLastPrice(BigDecimal lastPrice) {
         this.lastPrice = lastPrice;
     }
 
-    public Long getAskPrice() {
+    public BigDecimal getAskPrice() {
         return askPrice;
     }
 
-    public void setAskPrice(Long askPrice) {
+    public void setAskPrice(BigDecimal askPrice) {
         this.askPrice = askPrice;
     }
 
-    public Long getBidPrice() {
+    public BigDecimal getBidPrice() {
         return bidPrice;
     }
 
-    public void setBidPrice(Long bidPrice) {
+    public void setBidPrice(BigDecimal bidPrice) {
         this.bidPrice = bidPrice;
     }
 
-    public Long getVolume24hours() {
+    public BigDecimal getVolume24hours() {
         return volume24hours;
     }
 
-    public void setVolume24hours(Long volume24hours) {
+    public void setVolume24hours(BigDecimal volume24hours) {
         this.volume24hours = volume24hours;
     }
 

@@ -26,7 +26,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="txn_fees" type="bigint">
+            <column name="txn_fees" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
             <column name="coin_id" type="bigint">

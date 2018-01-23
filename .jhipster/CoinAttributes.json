@@ -17,7 +17,7 @@
         },
         {
             "fieldName": "txnFees",
-            "fieldType": "Long"
+            "fieldType": "BigDecimal"
         }
     ],
     "changelogDate": "20180123145041",

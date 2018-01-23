@@ -6,6 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -23,23 +24,23 @@ public class MarketDetails implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "high_price")
-    private Long highPrice;
+    @Column(name = "high_price", precision=10, scale=2)
+    private BigDecimal highPrice;
 
-    @Column(name = "low_price")
-    private Long lowPrice;
+    @Column(name = "low_price", precision=10, scale=2)
+    private BigDecimal lowPrice;
 
-    @Column(name = "last_price")
-    private Long lastPrice;
+    @Column(name = "last_price", precision=10, scale=2)
+    private BigDecimal lastPrice;
 
-    @Column(name = "ask_price")
-    private Long askPrice;
+    @Column(name = "ask_price", precision=10, scale=2)
+    private BigDecimal askPrice;
 
-    @Column(name = "bid_price")
-    private Long bidPrice;
+    @Column(name = "bid_price", precision=10, scale=2)
+    private BigDecimal bidPrice;
 
-    @Column(name = "volume_24_hours")
-    private Long volume24hours;
+    @Column(name = "volume_24_hours", precision=10, scale=2)
+    private BigDecimal volume24hours;
 
     @Column(name = "time_stamp")
     private Instant timeStamp;
@@ -51,8 +52,7 @@ public class MarketDetails implements Serializable {
     @JoinColumn(unique = true)
     private Exchange exchange;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Market market;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -64,81 +64,81 @@ public class MarketDetails implements Serializable {
         this.id = id;
     }
 
-    public Long getHighPrice() {
+    public BigDecimal getHighPrice() {
         return highPrice;
     }
 
-    public MarketDetails highPrice(Long highPrice) {
+    public MarketDetails highPrice(BigDecimal highPrice) {
         this.highPrice = highPrice;
         return this;
     }
 
-    public void setHighPrice(Long highPrice) {
+    public void setHighPrice(BigDecimal highPrice) {
         this.highPrice = highPrice;
     }
 
-    public Long getLowPrice() {
+    public BigDecimal getLowPrice() {
         return lowPrice;
     }
 
-    public MarketDetails lowPrice(Long lowPrice) {
+    public MarketDetails lowPrice(BigDecimal lowPrice) {
         this.lowPrice = lowPrice;
         return this;
     }
 
-    public void setLowPrice(Long lowPrice) {
+    public void setLowPrice(BigDecimal lowPrice) {
         this.lowPrice = lowPrice;
     }
 
-    public Long getLastPrice() {
+    public BigDecimal getLastPrice() {
         return lastPrice;
     }
 
-    public MarketDetails lastPrice(Long lastPrice) {
+    public MarketDetails lastPrice(BigDecimal lastPrice) {
         this.lastPrice = lastPrice;
         return this;
     }
 
-    public void setLastPrice(Long lastPrice) {
+    public void setLastPrice(BigDecimal lastPrice) {
         this.lastPrice = lastPrice;
     }
 
-    public Long getAskPrice() {
+    public BigDecimal getAskPrice() {
         return askPrice;
     }
 
-    public MarketDetails askPrice(Long askPrice) {
+    public MarketDetails askPrice(BigDecimal askPrice) {
         this.askPrice = askPrice;
         return this;
     }
 
-    public void setAskPrice(Long askPrice) {
+    public void setAskPrice(BigDecimal askPrice) {
         this.askPrice = askPrice;
     }
 
-    public Long getBidPrice() {
+    public BigDecimal getBidPrice() {
         return bidPrice;
     }
 
-    public MarketDetails bidPrice(Long bidPrice) {
+    public MarketDetails bidPrice(BigDecimal bidPrice) {
         this.bidPrice = bidPrice;
         return this;
     }
 
-    public void setBidPrice(Long bidPrice) {
+    public void setBidPrice(BigDecimal bidPrice) {
         this.bidPrice = bidPrice;
     }
 
-    public Long getVolume24hours() {
+    public BigDecimal getVolume24hours() {
         return volume24hours;
     }
 
-    public MarketDetails volume24hours(Long volume24hours) {
+    public MarketDetails volume24hours(BigDecimal volume24hours) {
         this.volume24hours = volume24hours;
         return this;
     }
 
-    public void setVolume24hours(Long volume24hours) {
+    public void setVolume24hours(BigDecimal volume24hours) {
         this.volume24hours = volume24hours;
     }
 

@@ -6,6 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -25,8 +26,8 @@ public class CoinAttributes implements Serializable {
     @Column(name = "min_confirmation")
     private Integer minConfirmation;
 
-    @Column(name = "txn_fees")
-    private Long txnFees;
+    @Column(name = "txn_fees", precision=10, scale=2)
+    private BigDecimal txnFees;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -54,16 +55,16 @@ public class CoinAttributes implements Serializable {
         this.minConfirmation = minConfirmation;
     }
 
-    public Long getTxnFees() {
+    public BigDecimal getTxnFees() {
         return txnFees;
     }
 
-    public CoinAttributes txnFees(Long txnFees) {
+    public CoinAttributes txnFees(BigDecimal txnFees) {
         this.txnFees = txnFees;
         return this;
     }
 
-    public void setTxnFees(Long txnFees) {
+    public void setTxnFees(BigDecimal txnFees) {
         this.txnFees = txnFees;
     }
 

@@ -24,6 +24,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -43,8 +44,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = AntyaPdEngineApp.class)
 public class MarketPriceResourceIntTest {
 
-    private static final Long DEFAULT_CURRENT_PRICE = 1L;
-    private static final Long UPDATED_CURRENT_PRICE = 2L;
+    private static final BigDecimal DEFAULT_CURRENT_PRICE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_CURRENT_PRICE = new BigDecimal(2);
 
     private static final Instant DEFAULT_TIME_STAMP = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_TIME_STAMP = Instant.now().truncatedTo(ChronoUnit.MILLIS);

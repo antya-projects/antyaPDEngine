@@ -68,7 +68,7 @@ class MarketDetailsGatlingTest extends Simulation {
             .exec(http("Create new marketDetails")
             .post("/antyapdengine/api/market-details")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "highPrice":null, "lowPrice":null, "lastPrice":null, "askPrice":null, "bidPrice":null, "volume24hours":null, "timeStamp":"2020-01-01T00:00:00.000Z", "isActive":"0"}""")).asJSON
+            .body(StringBody("""{"id":null, "highPrice":"0", "lowPrice":"0", "lastPrice":"0", "askPrice":"0", "bidPrice":"0", "volume24hours":"0", "timeStamp":"2020-01-01T00:00:00.000Z", "isActive":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_marketDetails_url"))).exitHereIfFailed
             .pause(10)

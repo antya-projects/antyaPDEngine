@@ -3,6 +3,7 @@ package com.antya.service.dto;
 
 import java.time.Instant;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -14,9 +15,13 @@ public class MarketPriceDTO implements Serializable {
 
     private Long id;
 
-    private Long currentPrice;
+    private BigDecimal currentPrice;
 
     private Instant timeStamp;
+
+    private Long exchangeId;
+
+    private Long marketId;
 
     public Long getId() {
         return id;
@@ -26,11 +31,11 @@ public class MarketPriceDTO implements Serializable {
         this.id = id;
     }
 
-    public Long getCurrentPrice() {
+    public BigDecimal getCurrentPrice() {
         return currentPrice;
     }
 
-    public void setCurrentPrice(Long currentPrice) {
+    public void setCurrentPrice(BigDecimal currentPrice) {
         this.currentPrice = currentPrice;
     }
 
@@ -40,6 +45,22 @@ public class MarketPriceDTO implements Serializable {
 
     public void setTimeStamp(Instant timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    public Long getExchangeId() {
+        return exchangeId;
+    }
+
+    public void setExchangeId(Long exchangeId) {
+        this.exchangeId = exchangeId;
+    }
+
+    public Long getMarketId() {
+        return marketId;
+    }
+
+    public void setMarketId(Long marketId) {
+        this.marketId = marketId;
     }
 
     @Override

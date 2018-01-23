@@ -68,7 +68,7 @@ class MarketPriceGatlingTest extends Simulation {
             .exec(http("Create new marketPrice")
             .post("/antyapdengine/api/market-prices")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "currentPrice":null, "timeStamp":"2020-01-01T00:00:00.000Z"}""")).asJSON
+            .body(StringBody("""{"id":null, "currentPrice":"0", "timeStamp":"2020-01-01T00:00:00.000Z"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_marketPrice_url"))).exitHereIfFailed
             .pause(10)

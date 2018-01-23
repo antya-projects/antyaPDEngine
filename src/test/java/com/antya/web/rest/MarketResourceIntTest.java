@@ -24,6 +24,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.util.List;
 
 import static com.antya.web.rest.TestUtil.createFormattingConversionService;
@@ -65,8 +66,8 @@ public class MarketResourceIntTest {
     private static final Integer DEFAULT_IS_ACTIVE = 1;
     private static final Integer UPDATED_IS_ACTIVE = 2;
 
-    private static final Long DEFAULT_COMMISSION = 1L;
-    private static final Long UPDATED_COMMISSION = 2L;
+    private static final BigDecimal DEFAULT_COMMISSION = new BigDecimal(1);
+    private static final BigDecimal UPDATED_COMMISSION = new BigDecimal(2);
 
     @Autowired
     private MarketRepository marketRepository;
