@@ -1,0 +1,91 @@
+
+entity Coin {
+	coinCode String,
+	coinInfoUrl String,
+	coinImageUrl String,
+	coinName String,
+	isActive Integer
+}
+
+entity CoinAttributes{
+	minConfirmation Integer,
+	txnFees Long
+}
+
+entity Market {
+	currencyPairCode String,
+    name String,
+    marketCurrency String,
+    baseCurrency String,
+    minTradeSize Integer,
+    maxTradeSize Integer,
+    manualTradeQty Long,
+    isActive Integer,
+    commission Long 
+}
+
+entity MarketPrice{
+	currentPrice Long,
+    timeStamp Instant
+}
+
+entity MarketDetails {
+	highPrice Long,
+    lowPrice Long,
+    lastPrice Long,
+    askPrice Long,
+    bidPrice Long, 
+    volume24hours Long,
+    timeStamp Instant,
+    isActive Integer
+}
+
+entity Exchange{
+	name String,
+    country String,
+    isActive Integer  
+}
+
+relationship OneToOne {
+	CoinAttributes{coin} to Coin
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	Market{market(marketCurrency)} to Coin,
+    Market{market(baseCurrency)} to Coin
+}
+
+relationship OneToOne {
+	Market{exchange} to Exchange
+}
+
+relationship OneToOne {
+	MarketDetails{exchange} to Exchange
+}
+
+
+
+
+relationship OneToOne {
+	MarketDetails{market} to Market
+     
+}
+
+relationship ManyToMany {
+	Market{marketPrice(currencyPairCode)} to MarketPrice{market}
+    
+}
+
+
+
+// Set pagination options
+paginate Coin,Market with infinite-scroll
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+// Set an angular suffix
+angularSuffix * with mySuffix
+
