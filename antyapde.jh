@@ -9,7 +9,7 @@ entity Coin {
 
 entity CoinAttributes{
 	minConfirmation Integer,
-	txnFees Long
+	txnFees BigDecimal
 }
 
 entity Market {
@@ -21,21 +21,21 @@ entity Market {
     maxTradeSize Integer,
     manualTradeQty Long,
     isActive Integer,
-    commission Long 
+    commission BigDecimal 
 }
 
 entity MarketPrice{
-	currentPrice Long,
+	currentPrice BigDecimal,
     timeStamp Instant
 }
 
 entity MarketDetails {
-	highPrice Long,
-    lowPrice Long,
-    lastPrice Long,
-    askPrice Long,
-    bidPrice Long, 
-    volume24hours Long,
+	highPrice BigDecimal,
+    lowPrice BigDecimal,
+    lastPrice BigDecimal,
+    askPrice BigDecimal,
+    bidPrice BigDecimal, 
+    volume24hours BigDecimal,
     timeStamp Instant,
     isActive Integer
 }
@@ -52,8 +52,8 @@ relationship OneToOne {
 
 // defining multiple oneToOne relationships
 relationship OneToOne {
-	Market{marketCurrency(marketCurrency)} to Coin,
-    Market{baseCurrency(baseCurrency)} to Coin
+	Market{coin} to Coin
+   
 }
 
 relationship OneToOne {
@@ -63,17 +63,19 @@ relationship OneToOne {
 relationship OneToOne {
 	MarketDetails{exchange} to Exchange
 }
-
-
-
-
 relationship OneToOne {
+	MarketPrice{exchange} to Exchange
+}
+
+
+
+relationship ManyToOne {
 	MarketDetails{market} to Market
      
 }
 
-relationship ManyToMany {
-	Market{marketPrice(currencyPairCode)} to MarketPrice{market}
+relationship ManyToOne {
+	MarketPrice{market} to Market
     
 }
 
