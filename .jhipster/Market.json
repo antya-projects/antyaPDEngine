@@ -3,7 +3,7 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "market",
+            "relationshipName": "marketCurrency",
             "otherEntityName": "coin",
             "otherEntityField": "marketCurrency",
             "ownerSide": true,
@@ -11,7 +11,7 @@
         },
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "market",
+            "relationshipName": "baseCurrency",
             "otherEntityName": "coin",
             "otherEntityField": "baseCurrency",
             "ownerSide": true,

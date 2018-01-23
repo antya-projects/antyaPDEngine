@@ -31,13 +31,13 @@ public class MarketDTO implements Serializable {
 
     private Long commission;
 
-    private Long marketId;
+    private Long marketCurrencyId;
 
-    private String marketMarketCurrency;
+    private String marketCurrencyMarketCurrency;
 
-    private Long marketId;
+    private Long baseCurrencyId;
 
-    private String marketBaseCurrency;
+    private String baseCurrencyBaseCurrency;
 
     private Long exchangeId;
 
@@ -123,36 +123,36 @@ public class MarketDTO implements Serializable {
         this.commission = commission;
     }
 
-    public Long getMarketId() {
-        return marketId;
+    public Long getMarketCurrencyId() {
+        return marketCurrencyId;
     }
 
-    public void setMarketId(Long coinId) {
-        this.marketId = coinId;
+    public void setMarketCurrencyId(Long coinId) {
+        this.marketCurrencyId = coinId;
     }
 
-    public String getMarketMarketCurrency() {
-        return marketMarketCurrency;
+    public String getMarketCurrencyMarketCurrency() {
+        return marketCurrencyMarketCurrency;
     }
 
-    public void setMarketMarketCurrency(String coinMarketCurrency) {
-        this.marketMarketCurrency = coinMarketCurrency;
+    public void setMarketCurrencyMarketCurrency(String coinMarketCurrency) {
+        this.marketCurrencyMarketCurrency = coinMarketCurrency;
     }
 
-    public Long getMarketId() {
-        return marketId;
+    public Long getBaseCurrencyId() {
+        return baseCurrencyId;
     }
 
-    public void setMarketId(Long coinId) {
-        this.marketId = coinId;
+    public void setBaseCurrencyId(Long coinId) {
+        this.baseCurrencyId = coinId;
     }
 
-    public String getMarketBaseCurrency() {
-        return marketBaseCurrency;
+    public String getBaseCurrencyBaseCurrency() {
+        return baseCurrencyBaseCurrency;
     }
 
-    public void setMarketBaseCurrency(String coinBaseCurrency) {
-        this.marketBaseCurrency = coinBaseCurrency;
+    public void setBaseCurrencyBaseCurrency(String coinBaseCurrency) {
+        this.baseCurrencyBaseCurrency = coinBaseCurrency;
     }
 
     public Long getExchangeId() {

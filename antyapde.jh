@@ -52,8 +52,8 @@ relationship OneToOne {
 
 // defining multiple oneToOne relationships
 relationship OneToOne {
-	Market{market(marketCurrency)} to Coin,
-    Market{market(baseCurrency)} to Coin
+	Market{marketCurrency(marketCurrency)} to Coin,
+    Market{baseCurrency(baseCurrency)} to Coin
 }
 
 relationship OneToOne {

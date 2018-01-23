@@ -53,11 +53,11 @@ public class Market implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Coin market;
+    private Coin marketCurrency;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Coin market;
+    private Coin baseCurrency;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -196,30 +196,30 @@ public class Market implements Serializable {
         this.commission = commission;
     }
 
-    public Coin getMarket() {
-        return market;
+    public Coin getMarketCurrency() {
+        return marketCurrency;
     }
 
-    public Market market(Coin coin) {
-        this.market = coin;
+    public Market marketCurrency(Coin coin) {
+        this.marketCurrency = coin;
         return this;
     }
 
-    public void setMarket(Coin coin) {
-        this.market = coin;
+    public void setMarketCurrency(Coin coin) {
+        this.marketCurrency = coin;
     }
 
-    public Coin getMarket() {
-        return market;
+    public Coin getBaseCurrency() {
+        return baseCurrency;
     }
 
-    public Market market(Coin coin) {
-        this.market = coin;
+    public Market baseCurrency(Coin coin) {
+        this.baseCurrency = coin;
         return this;
     }
 
-    public void setMarket(Coin coin) {
-        this.market = coin;
+    public void setBaseCurrency(Coin coin) {
+        this.baseCurrency = coin;
     }
 
     public Exchange getExchange() {
