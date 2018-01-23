@@ -47,21 +47,21 @@ entity Exchange{
 }
 
 relationship OneToOne {
-	CoinAttributes{coin} to Coin
+	CoinAttributes{coinId} to Coin
 }
 
 // defining multiple oneToOne relationships
 relationship OneToOne {
-	Market{marketCurrency(marketCurrency)} to Coin,
-    Market{baseCurrency(baseCurrency)} to Coin
+	Market{marketCurrencyId(marketCurrency)} to Coin,
+    Market{baseCurrencyId(baseCurrency)} to Coin
 }
 
 relationship OneToOne {
-	Market{exchange} to Exchange
+	Market{exchangeId} to Exchange
 }
 
 relationship OneToOne {
-	MarketDetails{exchange} to Exchange
+	MarketDetails{exchangeId} to Exchange
 }
 
 
@@ -72,8 +72,8 @@ relationship OneToOne {
      
 }
 
-relationship ManyToMany {
-	Market{marketPrice(currencyPairCode)} to MarketPrice{market}
+relationship ManyToOne {
+	Market{marketPriceId(currencyPairCode)} to MarketPrice{market}
     
 }
 
