@@ -8,34 +8,29 @@
     -->
     <changeSet id="20180123145042-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="market_currency_id"
+        <addForeignKeyConstraint baseColumnNames="market_currency_id_id"
                                  baseTableName="market"
-                                 constraintName="fk_market_market_currency_id"
+                                 constraintName="fk_market_market_currency_id_id"
                                  referencedColumnNames="id"
                                  referencedTableName="coin"/>
 
-        <addForeignKeyConstraint baseColumnNames="base_currency_id"
+        <addForeignKeyConstraint baseColumnNames="base_currency_id_id"
                                  baseTableName="market"
-                                 constraintName="fk_market_base_currency_id"
+                                 constraintName="fk_market_base_currency_id_id"
                                  referencedColumnNames="id"
                                  referencedTableName="coin"/>
 
-        <addForeignKeyConstraint baseColumnNames="exchange_id"
+        <addForeignKeyConstraint baseColumnNames="exchange_id_id"
                                  baseTableName="market"
-                                 constraintName="fk_market_exchange_id"
+                                 constraintName="fk_market_exchange_id_id"
                                  referencedColumnNames="id"
                                  referencedTableName="exchange"/>
 
-        <addForeignKeyConstraint baseColumnNames="markets_id"
-                                 baseTableName="market_market_price"
-                                 constraintName="fk_market_market_price_markets_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="market"/>
-        <addForeignKeyConstraint baseColumnNames="market_prices_id"
-                                 baseTableName="market_market_price"
-                                 constraintName="fk_market_market_price_market_prices_id"
+        <addForeignKeyConstraint baseColumnNames="market_price_id_id"
+                                 baseTableName="market"
+                                 constraintName="fk_market_market_price_id_id"
                                  referencedColumnNames="id"
                                  referencedTableName="market_price"/>
-        
+
     </changeSet>
 </databaseChangeLog>

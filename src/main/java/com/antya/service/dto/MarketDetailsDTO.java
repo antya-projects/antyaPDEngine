@@ -30,7 +30,7 @@ public class MarketDetailsDTO implements Serializable {
 
     private Integer isActive;
 
-    private Long exchangeId;
+    private Long exchangeIdId;
 
     private Long marketId;
 
@@ -106,12 +106,12 @@ public class MarketDetailsDTO implements Serializable {
         this.isActive = isActive;
     }
 
-    public Long getExchangeId() {
-        return exchangeId;
+    public Long getExchangeIdId() {
+        return exchangeIdId;
     }
 
-    public void setExchangeId(Long exchangeId) {
-        this.exchangeId = exchangeId;
+    public void setExchangeIdId(Long exchangeId) {
+        this.exchangeIdId = exchangeId;
     }
 
     public Long getMarketId() {
