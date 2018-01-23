@@ -3,7 +3,7 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "marketCurrency",
+            "relationshipName": "marketCurrencyId",
             "otherEntityName": "coin",
             "otherEntityField": "marketCurrency",
             "ownerSide": true,
@@ -11,7 +11,7 @@
         },
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "baseCurrency",
+            "relationshipName": "baseCurrencyId",
             "otherEntityName": "coin",
             "otherEntityField": "baseCurrency",
             "ownerSide": true,
@@ -19,19 +19,17 @@
         },
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "exchange",
+            "relationshipName": "exchangeId",
             "otherEntityName": "exchange",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "market"
         },
         {
-            "relationshipType": "many-to-many",
-            "otherEntityRelationshipName": "market",
-            "relationshipName": "marketPrice",
+            "relationshipType": "many-to-one",
+            "relationshipName": "marketPriceId",
             "otherEntityName": "marketPrice",
-            "otherEntityField": "currencyPairCode",
-            "ownerSide": true
+            "otherEntityField": "currencyPairCode"
         }
     ],
     "fields": [

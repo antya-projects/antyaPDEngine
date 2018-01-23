@@ -17,7 +17,7 @@ public class CoinAttributesDTO implements Serializable {
 
     private Long txnFees;
 
-    private Long coinId;
+    private Long coinIdId;
 
     public Long getId() {
         return id;
@@ -43,12 +43,12 @@ public class CoinAttributesDTO implements Serializable {
         this.txnFees = txnFees;
     }
 
-    public Long getCoinId() {
-        return coinId;
+    public Long getCoinIdId() {
+        return coinIdId;
     }
 
-    public void setCoinId(Long coinId) {
-        this.coinId = coinId;
+    public void setCoinIdId(Long coinId) {
+        this.coinIdId = coinId;
     }
 
     @Override
