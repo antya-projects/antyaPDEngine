@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "market",
+            "otherEntityName": "market",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "marketPrice"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "currentPrice",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "timeStamp",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180123145043",
+    "entityTableName": "market_price",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix",
+    "microserviceName": "antyaPDEngine"
+}

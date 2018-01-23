@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Market.
+    -->
+    <changeSet id="20180123145042-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="market_id"
+                                 baseTableName="market"
+                                 constraintName="fk_market_market_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="coin"/>
+
+        <addForeignKeyConstraint baseColumnNames="market_id"
+                                 baseTableName="market"
+                                 constraintName="fk_market_market_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="coin"/>
+
+        <addForeignKeyConstraint baseColumnNames="exchange_id"
+                                 baseTableName="market"
+                                 constraintName="fk_market_exchange_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exchange"/>
+
+        <addForeignKeyConstraint baseColumnNames="markets_id"
+                                 baseTableName="market_market_price"
+                                 constraintName="fk_market_market_price_markets_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="market"/>
+        <addForeignKeyConstraint baseColumnNames="market_prices_id"
+                                 baseTableName="market_market_price"
+                                 constraintName="fk_market_market_price_market_prices_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="market_price"/>
+        
+    </changeSet>
+</databaseChangeLog>
