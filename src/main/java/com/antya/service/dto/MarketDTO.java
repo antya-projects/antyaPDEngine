@@ -31,17 +31,19 @@ public class MarketDTO implements Serializable {
 
     private Long commission;
 
-    private Long marketCurrencyId;
+    private Long marketCurrencyIdId;
 
-    private String marketCurrencyMarketCurrency;
+    private String marketCurrencyIdMarketCurrency;
 
-    private Long baseCurrencyId;
+    private Long baseCurrencyIdId;
 
-    private String baseCurrencyBaseCurrency;
+    private String baseCurrencyIdBaseCurrency;
 
-    private Long exchangeId;
+    private Long exchangeIdId;
 
-    private Set<MarketPriceDTO> marketPrices = new HashSet<>();
+    private Long marketPriceIdId;
+
+    private String marketPriceIdCurrencyPairCode;
 
     public Long getId() {
         return id;
@@ -123,52 +125,60 @@ public class MarketDTO implements Serializable {
         this.commission = commission;
     }
 
-    public Long getMarketCurrencyId() {
-        return marketCurrencyId;
+    public Long getMarketCurrencyIdId() {
+        return marketCurrencyIdId;
     }
 
-    public void setMarketCurrencyId(Long coinId) {
-        this.marketCurrencyId = coinId;
+    public void setMarketCurrencyIdId(Long coinId) {
+        this.marketCurrencyIdId = coinId;
     }
 
-    public String getMarketCurrencyMarketCurrency() {
-        return marketCurrencyMarketCurrency;
+    public String getMarketCurrencyIdMarketCurrency() {
+        return marketCurrencyIdMarketCurrency;
     }
 
-    public void setMarketCurrencyMarketCurrency(String coinMarketCurrency) {
-        this.marketCurrencyMarketCurrency = coinMarketCurrency;
+    public void setMarketCurrencyIdMarketCurrency(String coinMarketCurrency) {
+        this.marketCurrencyIdMarketCurrency = coinMarketCurrency;
     }
 
-    public Long getBaseCurrencyId() {
-        return baseCurrencyId;
+    public Long getBaseCurrencyIdId() {
+        return baseCurrencyIdId;
     }
 
-    public void setBaseCurrencyId(Long coinId) {
-        this.baseCurrencyId = coinId;
+    public void setBaseCurrencyIdId(Long coinId) {
+        this.baseCurrencyIdId = coinId;
     }
 
-    public String getBaseCurrencyBaseCurrency() {
-        return baseCurrencyBaseCurrency;
+    public String getBaseCurrencyIdBaseCurrency() {
+        return baseCurrencyIdBaseCurrency;
     }
 
-    public void setBaseCurrencyBaseCurrency(String coinBaseCurrency) {
-        this.baseCurrencyBaseCurrency = coinBaseCurrency;
+    public void setBaseCurrencyIdBaseCurrency(String coinBaseCurrency) {
+        this.baseCurrencyIdBaseCurrency = coinBaseCurrency;
     }
 
-    public Long getExchangeId() {
-        return exchangeId;
+    public Long getExchangeIdId() {
+        return exchangeIdId;
     }
 
-    public void setExchangeId(Long exchangeId) {
-        this.exchangeId = exchangeId;
+    public void setExchangeIdId(Long exchangeId) {
+        this.exchangeIdId = exchangeId;
     }
 
-    public Set<MarketPriceDTO> getMarketPrices() {
-        return marketPrices;
+    public Long getMarketPriceIdId() {
+        return marketPriceIdId;
     }
 
-    public void setMarketPrices(Set<MarketPriceDTO> marketPrices) {
-        this.marketPrices = marketPrices;
+    public void setMarketPriceIdId(Long marketPriceId) {
+        this.marketPriceIdId = marketPriceId;
+    }
+
+    public String getMarketPriceIdCurrencyPairCode() {
+        return marketPriceIdCurrencyPairCode;
+    }
+
+    public void setMarketPriceIdCurrencyPairCode(String marketPriceCurrencyPairCode) {
+        this.marketPriceIdCurrencyPairCode = marketPriceCurrencyPairCode;
     }
 
     @Override

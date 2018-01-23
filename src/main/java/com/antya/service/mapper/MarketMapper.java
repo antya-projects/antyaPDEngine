@@ -11,16 +11,19 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {CoinMapper.class, ExchangeMapper.class, MarketPriceMapper.class})
 public interface MarketMapper extends EntityMapper<MarketDTO, Market> {
 
-    @Mapping(source = "marketCurrency.id", target = "marketCurrencyId")
-    @Mapping(source = "marketCurrency.marketCurrency", target = "marketCurrencyMarketCurrency")
-    @Mapping(source = "baseCurrency.id", target = "baseCurrencyId")
-    @Mapping(source = "baseCurrency.baseCurrency", target = "baseCurrencyBaseCurrency")
-    @Mapping(source = "exchange.id", target = "exchangeId")
+    @Mapping(source = "marketCurrencyId.id", target = "marketCurrencyIdId")
+    @Mapping(source = "marketCurrencyId.marketCurrency", target = "marketCurrencyIdMarketCurrency")
+    @Mapping(source = "baseCurrencyId.id", target = "baseCurrencyIdId")
+    @Mapping(source = "baseCurrencyId.baseCurrency", target = "baseCurrencyIdBaseCurrency")
+    @Mapping(source = "exchangeId.id", target = "exchangeIdId")
+    @Mapping(source = "marketPriceId.id", target = "marketPriceIdId")
+    @Mapping(source = "marketPriceId.currencyPairCode", target = "marketPriceIdCurrencyPairCode")
     MarketDTO toDto(Market market);
 
-    @Mapping(source = "marketCurrencyId", target = "marketCurrency")
-    @Mapping(source = "baseCurrencyId", target = "baseCurrency")
-    @Mapping(source = "exchangeId", target = "exchange")
+    @Mapping(source = "marketCurrencyIdId", target = "marketCurrencyId")
+    @Mapping(source = "baseCurrencyIdId", target = "baseCurrencyId")
+    @Mapping(source = "exchangeIdId", target = "exchangeId")
+    @Mapping(source = "marketPriceIdId", target = "marketPriceId")
     Market toEntity(MarketDTO marketDTO);
 
     default Market fromId(Long id) {

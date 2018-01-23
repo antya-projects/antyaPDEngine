@@ -11,11 +11,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {ExchangeMapper.class, MarketMapper.class})
 public interface MarketDetailsMapper extends EntityMapper<MarketDetailsDTO, MarketDetails> {
 
-    @Mapping(source = "exchange.id", target = "exchangeId")
+    @Mapping(source = "exchangeId.id", target = "exchangeIdId")
     @Mapping(source = "market.id", target = "marketId")
     MarketDetailsDTO toDto(MarketDetails marketDetails);
 
-    @Mapping(source = "exchangeId", target = "exchange")
+    @Mapping(source = "exchangeIdId", target = "exchangeId")
     @Mapping(source = "marketId", target = "market")
     MarketDetails toEntity(MarketDetailsDTO marketDetailsDTO);
 

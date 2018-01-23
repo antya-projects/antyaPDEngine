@@ -49,7 +49,7 @@ public class MarketDetails implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Exchange exchange;
+    private Exchange exchangeId;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -168,17 +168,17 @@ public class MarketDetails implements Serializable {
         this.isActive = isActive;
     }
 
-    public Exchange getExchange() {
-        return exchange;
+    public Exchange getExchangeId() {
+        return exchangeId;
     }
 
-    public MarketDetails exchange(Exchange exchange) {
-        this.exchange = exchange;
+    public MarketDetails exchangeId(Exchange exchange) {
+        this.exchangeId = exchange;
         return this;
     }
 
-    public void setExchange(Exchange exchange) {
-        this.exchange = exchange;
+    public void setExchangeId(Exchange exchange) {
+        this.exchangeId = exchange;
     }
 
     public Market getMarket() {

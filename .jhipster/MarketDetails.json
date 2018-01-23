@@ -3,7 +3,7 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "exchange",
+            "relationshipName": "exchangeId",
             "otherEntityName": "exchange",
             "otherEntityField": "id",
             "ownerSide": true,

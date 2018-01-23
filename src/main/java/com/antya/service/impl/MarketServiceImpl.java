@@ -69,7 +69,7 @@ public class MarketServiceImpl implements MarketService {
     @Transactional(readOnly = true)
     public MarketDTO findOne(Long id) {
         log.debug("Request to get Market : {}", id);
-        Market market = marketRepository.findOneWithEagerRelationships(id);
+        Market market = marketRepository.findOne(id);
         return marketMapper.toDto(market);
     }
 
