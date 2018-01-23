@@ -8,15 +8,15 @@
     -->
     <changeSet id="20180123145042-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="market_id"
+        <addForeignKeyConstraint baseColumnNames="market_currency_id"
                                  baseTableName="market"
-                                 constraintName="fk_market_market_id"
+                                 constraintName="fk_market_market_currency_id"
                                  referencedColumnNames="id"
                                  referencedTableName="coin"/>
 
-        <addForeignKeyConstraint baseColumnNames="market_id"
+        <addForeignKeyConstraint baseColumnNames="base_currency_id"
                                  baseTableName="market"
-                                 constraintName="fk_market_market_id"
+                                 constraintName="fk_market_base_currency_id"
                                  referencedColumnNames="id"
                                  referencedTableName="coin"/>
 
