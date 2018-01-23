@@ -54,29 +54,16 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="commission" type="bigint">
+            <column name="commission" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            <column name="market_currency_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            <column name="base_currency_id" type="bigint">
+            <column name="coin_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>            <column name="exchange_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        
-        <createTable tableName="market_market_price">
-            <column name="market_prices_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="markets_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="markets_id, market_prices_id" tableName="market_market_price"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

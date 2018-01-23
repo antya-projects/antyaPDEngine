@@ -68,7 +68,7 @@ class CoinAttributesGatlingTest extends Simulation {
             .exec(http("Create new coinAttributes")
             .post("/antyapdengine/api/coin-attributes")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "minConfirmation":"0", "txnFees":null}""")).asJSON
+            .body(StringBody("""{"id":null, "minConfirmation":"0", "txnFees":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_coinAttributes_url"))).exitHereIfFailed
             .pause(10)

@@ -10,38 +10,36 @@
             "otherEntityRelationshipName": "marketDetails"
         },
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipName": "market",
             "otherEntityName": "market",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "marketDetails"
+            "otherEntityField": "id"
         }
     ],
     "fields": [
         {
             "fieldName": "highPrice",
-            "fieldType": "Long"
+            "fieldType": "BigDecimal"
         },
         {
             "fieldName": "lowPrice",
-            "fieldType": "Long"
+            "fieldType": "BigDecimal"
         },
         {
             "fieldName": "lastPrice",
-            "fieldType": "Long"
+            "fieldType": "BigDecimal"
         },
         {
             "fieldName": "askPrice",
-            "fieldType": "Long"
+            "fieldType": "BigDecimal"
         },
         {
             "fieldName": "bidPrice",
-            "fieldType": "Long"
+            "fieldType": "BigDecimal"
         },
         {
             "fieldName": "volume24hours",
-            "fieldType": "Long"
+            "fieldType": "BigDecimal"
         },
         {
             "fieldName": "timeStamp",

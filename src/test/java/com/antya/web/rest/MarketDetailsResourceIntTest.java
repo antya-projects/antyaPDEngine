@@ -24,6 +24,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -43,23 +44,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = AntyaPdEngineApp.class)
 public class MarketDetailsResourceIntTest {
 
-    private static final Long DEFAULT_HIGH_PRICE = 1L;
-    private static final Long UPDATED_HIGH_PRICE = 2L;
+    private static final BigDecimal DEFAULT_HIGH_PRICE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_HIGH_PRICE = new BigDecimal(2);
 
-    private static final Long DEFAULT_LOW_PRICE = 1L;
-    private static final Long UPDATED_LOW_PRICE = 2L;
+    private static final BigDecimal DEFAULT_LOW_PRICE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_LOW_PRICE = new BigDecimal(2);
 
-    private static final Long DEFAULT_LAST_PRICE = 1L;
-    private static final Long UPDATED_LAST_PRICE = 2L;
+    private static final BigDecimal DEFAULT_LAST_PRICE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_LAST_PRICE = new BigDecimal(2);
 
-    private static final Long DEFAULT_ASK_PRICE = 1L;
-    private static final Long UPDATED_ASK_PRICE = 2L;
+    private static final BigDecimal DEFAULT_ASK_PRICE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_ASK_PRICE = new BigDecimal(2);
 
-    private static final Long DEFAULT_BID_PRICE = 1L;
-    private static final Long UPDATED_BID_PRICE = 2L;
+    private static final BigDecimal DEFAULT_BID_PRICE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_BID_PRICE = new BigDecimal(2);
 
-    private static final Long DEFAULT_VOLUME_24_HOURS = 1L;
-    private static final Long UPDATED_VOLUME_24_HOURS = 2L;
+    private static final BigDecimal DEFAULT_VOLUME_24_HOURS = new BigDecimal(1);
+    private static final BigDecimal UPDATED_VOLUME_24_HOURS = new BigDecimal(2);
 
     private static final Instant DEFAULT_TIME_STAMP = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_TIME_STAMP = Instant.now().truncatedTo(ChronoUnit.MILLIS);

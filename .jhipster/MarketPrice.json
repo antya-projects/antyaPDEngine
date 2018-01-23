@@ -2,17 +2,24 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "many-to-many",
+            "relationshipType": "one-to-one",
+            "relationshipName": "exchange",
+            "otherEntityName": "exchange",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "marketPrice"
+        },
+        {
+            "relationshipType": "many-to-one",
             "relationshipName": "market",
             "otherEntityName": "market",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "marketPrice"
+            "otherEntityField": "id"
         }
     ],
     "fields": [
         {
             "fieldName": "currentPrice",
-            "fieldType": "Long"
+            "fieldType": "BigDecimal"
         },
         {
             "fieldName": "timeStamp",

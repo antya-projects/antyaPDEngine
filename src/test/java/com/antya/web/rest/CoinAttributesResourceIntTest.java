@@ -24,6 +24,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.util.List;
 
 import static com.antya.web.rest.TestUtil.createFormattingConversionService;
@@ -44,8 +45,8 @@ public class CoinAttributesResourceIntTest {
     private static final Integer DEFAULT_MIN_CONFIRMATION = 1;
     private static final Integer UPDATED_MIN_CONFIRMATION = 2;
 
-    private static final Long DEFAULT_TXN_FEES = 1L;
-    private static final Long UPDATED_TXN_FEES = 2L;
+    private static final BigDecimal DEFAULT_TXN_FEES = new BigDecimal(1);
+    private static final BigDecimal UPDATED_TXN_FEES = new BigDecimal(2);
 
     @Autowired
     private CoinAttributesRepository coinAttributesRepository;

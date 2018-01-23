@@ -2,6 +2,7 @@ package com.antya.service.dto;
 
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -29,19 +30,11 @@ public class MarketDTO implements Serializable {
 
     private Integer isActive;
 
-    private Long commission;
+    private BigDecimal commission;
 
-    private Long marketCurrencyId;
-
-    private String marketCurrencyMarketCurrency;
-
-    private Long baseCurrencyId;
-
-    private String baseCurrencyBaseCurrency;
+    private Long coinId;
 
     private Long exchangeId;
-
-    private Set<MarketPriceDTO> marketPrices = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -115,44 +108,20 @@ public class MarketDTO implements Serializable {
         this.isActive = isActive;
     }
 
-    public Long getCommission() {
+    public BigDecimal getCommission() {
         return commission;
     }
 
-    public void setCommission(Long commission) {
+    public void setCommission(BigDecimal commission) {
         this.commission = commission;
     }
 
-    public Long getMarketCurrencyId() {
-        return marketCurrencyId;
+    public Long getCoinId() {
+        return coinId;
     }
 
-    public void setMarketCurrencyId(Long coinId) {
-        this.marketCurrencyId = coinId;
-    }
-
-    public String getMarketCurrencyMarketCurrency() {
-        return marketCurrencyMarketCurrency;
-    }
-
-    public void setMarketCurrencyMarketCurrency(String coinMarketCurrency) {
-        this.marketCurrencyMarketCurrency = coinMarketCurrency;
-    }
-
-    public Long getBaseCurrencyId() {
-        return baseCurrencyId;
-    }
-
-    public void setBaseCurrencyId(Long coinId) {
-        this.baseCurrencyId = coinId;
-    }
-
-    public String getBaseCurrencyBaseCurrency() {
-        return baseCurrencyBaseCurrency;
-    }
-
-    public void setBaseCurrencyBaseCurrency(String coinBaseCurrency) {
-        this.baseCurrencyBaseCurrency = coinBaseCurrency;
+    public void setCoinId(Long coinId) {
+        this.coinId = coinId;
     }
 
     public Long getExchangeId() {
@@ -161,14 +130,6 @@ public class MarketDTO implements Serializable {
 
     public void setExchangeId(Long exchangeId) {
         this.exchangeId = exchangeId;
-    }
-
-    public Set<MarketPriceDTO> getMarketPrices() {
-        return marketPrices;
-    }
-
-    public void setMarketPrices(Set<MarketPriceDTO> marketPrices) {
-        this.marketPrices = marketPrices;
     }
 
     @Override

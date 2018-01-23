@@ -1,15 +1,13 @@
 package com.antya.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -26,16 +24,18 @@ public class MarketPrice implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "current_price")
-    private Long currentPrice;
+    @Column(name = "current_price", precision=10, scale=2)
+    private BigDecimal currentPrice;
 
     @Column(name = "time_stamp")
     private Instant timeStamp;
 
-    @ManyToMany(mappedBy = "marketPrices")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Market> markets = new HashSet<>();
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Exchange exchange;
+
+    @ManyToOne
+    private Market market;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -46,16 +46,16 @@ public class MarketPrice implements Serializable {
         this.id = id;
     }
 
-    public Long getCurrentPrice() {
+    public BigDecimal getCurrentPrice() {
         return currentPrice;
     }
 
-    public MarketPrice currentPrice(Long currentPrice) {
+    public MarketPrice currentPrice(BigDecimal currentPrice) {
         this.currentPrice = currentPrice;
         return this;
     }
 
-    public void setCurrentPrice(Long currentPrice) {
+    public void setCurrentPrice(BigDecimal currentPrice) {
         this.currentPrice = currentPrice;
     }
 
@@ -72,29 +72,30 @@ public class MarketPrice implements Serializable {
         this.timeStamp = timeStamp;
     }
 
-    public Set<Market> getMarkets() {
-        return markets;
+    public Exchange getExchange() {
+        return exchange;
     }
 
-    public MarketPrice markets(Set<Market> markets) {
-        this.markets = markets;
+    public MarketPrice exchange(Exchange exchange) {
+        this.exchange = exchange;
         return this;
     }
 
-    public MarketPrice addMarket(Market market) {
-        this.markets.add(market);
-        market.getMarketPrices().add(this);
+    public void setExchange(Exchange exchange) {
+        this.exchange = exchange;
+    }
+
+    public Market getMarket() {
+        return market;
+    }
+
+    public MarketPrice market(Market market) {
+        this.market = market;
         return this;
     }
 
-    public MarketPrice removeMarket(Market market) {
-        this.markets.remove(market);
-        market.getMarketPrices().remove(this);
-        return this;
-    }
-
-    public void setMarkets(Set<Market> markets) {
-        this.markets = markets;
+    public void setMarket(Market market) {
+        this.market = market;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

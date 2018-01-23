@@ -2,6 +2,7 @@ package com.antya.service.dto;
 
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -15,7 +16,7 @@ public class CoinAttributesDTO implements Serializable {
 
     private Integer minConfirmation;
 
-    private Long txnFees;
+    private BigDecimal txnFees;
 
     private Long coinId;
 
@@ -35,11 +36,11 @@ public class CoinAttributesDTO implements Serializable {
         this.minConfirmation = minConfirmation;
     }
 
-    public Long getTxnFees() {
+    public BigDecimal getTxnFees() {
         return txnFees;
     }
 
-    public void setTxnFees(Long txnFees) {
+    public void setTxnFees(BigDecimal txnFees) {
         this.txnFees = txnFees;
     }
 

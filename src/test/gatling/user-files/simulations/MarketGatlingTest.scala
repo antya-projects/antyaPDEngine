@@ -68,7 +68,7 @@ class MarketGatlingTest extends Simulation {
             .exec(http("Create new market")
             .post("/antyapdengine/api/markets")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "currencyPairCode":"SAMPLE_TEXT", "name":"SAMPLE_TEXT", "marketCurrency":"SAMPLE_TEXT", "baseCurrency":"SAMPLE_TEXT", "minTradeSize":"0", "maxTradeSize":"0", "manualTradeQty":null, "isActive":"0", "commission":null}""")).asJSON
+            .body(StringBody("""{"id":null, "currencyPairCode":"SAMPLE_TEXT", "name":"SAMPLE_TEXT", "marketCurrency":"SAMPLE_TEXT", "baseCurrency":"SAMPLE_TEXT", "minTradeSize":"0", "maxTradeSize":"0", "manualTradeQty":null, "isActive":"0", "commission":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_market_url"))).exitHereIfFailed
             .pause(10)
