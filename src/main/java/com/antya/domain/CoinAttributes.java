@@ -30,7 +30,7 @@ public class CoinAttributes implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Coin coin;
+    private Coin coinId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -67,17 +67,17 @@ public class CoinAttributes implements Serializable {
         this.txnFees = txnFees;
     }
 
-    public Coin getCoin() {
-        return coin;
+    public Coin getCoinId() {
+        return coinId;
     }
 
-    public CoinAttributes coin(Coin coin) {
-        this.coin = coin;
+    public CoinAttributes coinId(Coin coin) {
+        this.coinId = coin;
         return this;
     }
 
-    public void setCoin(Coin coin) {
-        this.coin = coin;
+    public void setCoinId(Coin coin) {
+        this.coinId = coin;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

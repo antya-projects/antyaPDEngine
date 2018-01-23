@@ -53,7 +53,7 @@
             <column name="is_active" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="exchange_id" type="bigint">
+            <column name="exchange_id_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>            <column name="market_id" type="bigint">
                 <constraints unique="true" nullable="true" />

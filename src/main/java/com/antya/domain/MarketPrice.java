@@ -32,7 +32,7 @@ public class MarketPrice implements Serializable {
     @Column(name = "time_stamp")
     private Instant timeStamp;
 
-    @ManyToMany(mappedBy = "marketPrices")
+    @OneToMany(mappedBy = "marketPriceId")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Market> markets = new HashSet<>();
@@ -83,13 +83,13 @@ public class MarketPrice implements Serializable {
 
     public MarketPrice addMarket(Market market) {
         this.markets.add(market);
-        market.getMarketPrices().add(this);
+        market.setMarketPriceId(this);
         return this;
     }
 
     public MarketPrice removeMarket(Market market) {
         this.markets.remove(market);
-        market.getMarketPrices().remove(this);
+        market.setMarketPriceId(null);
         return this;
     }
 
