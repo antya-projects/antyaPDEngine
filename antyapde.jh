@@ -82,7 +82,8 @@ relationship ManyToOne {
 
 
 // Set pagination options
-paginate Coin,Market with infinite-scroll
+paginate Coin,CoinAttributes,Market,MarketPrice,MarketDetails,
+Exchange with infinite-scroll
 
 dto * with mapstruct
 
