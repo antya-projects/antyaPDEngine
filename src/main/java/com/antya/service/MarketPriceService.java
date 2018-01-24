@@ -1,7 +1,8 @@
 package com.antya.service;
 
 import com.antya.service.dto.MarketPriceDTO;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Service Interface for managing MarketPrice.
@@ -19,9 +20,10 @@ public interface MarketPriceService {
     /**
      * Get all the marketPrices.
      *
+     * @param pageable the pagination information
      * @return the list of entities
      */
-    List<MarketPriceDTO> findAll();
+    Page<MarketPriceDTO> findAll(Pageable pageable);
 
     /**
      * Get the "id" marketPrice.

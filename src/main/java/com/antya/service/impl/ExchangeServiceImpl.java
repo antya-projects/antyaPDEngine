@@ -7,12 +7,11 @@ import com.antya.service.dto.ExchangeDTO;
 import com.antya.service.mapper.ExchangeMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing Exchange.
@@ -49,15 +48,15 @@ public class ExchangeServiceImpl implements ExchangeService {
     /**
      * Get all the exchanges.
      *
+     * @param pageable the pagination information
      * @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
-    public List<ExchangeDTO> findAll() {
+    public Page<ExchangeDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Exchanges");
-        return exchangeRepository.findAll().stream()
-            .map(exchangeMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
+        return exchangeRepository.findAll(pageable)
+            .map(exchangeMapper::toDto);
     }
 
     /**

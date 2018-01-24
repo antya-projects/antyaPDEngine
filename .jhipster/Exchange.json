@@ -18,7 +18,7 @@
     "changelogDate": "20180123145045",
     "entityTableName": "exchange",
     "dto": "mapstruct",
-    "pagination": "no",
+    "pagination": "infinite-scroll",
     "service": "serviceImpl",
     "jpaMetamodelFiltering": false,
     "angularJSSuffix": "mySuffix",

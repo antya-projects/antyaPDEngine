@@ -7,12 +7,11 @@ import com.antya.service.dto.CoinAttributesDTO;
 import com.antya.service.mapper.CoinAttributesMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing CoinAttributes.
@@ -49,15 +48,15 @@ public class CoinAttributesServiceImpl implements CoinAttributesService {
     /**
      * Get all the coinAttributes.
      *
+     * @param pageable the pagination information
      * @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
-    public List<CoinAttributesDTO> findAll() {
+    public Page<CoinAttributesDTO> findAll(Pageable pageable) {
         log.debug("Request to get all CoinAttributes");
-        return coinAttributesRepository.findAll().stream()
-            .map(coinAttributesMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
+        return coinAttributesRepository.findAll(pageable)
+            .map(coinAttributesMapper::toDto);
     }
 
     /**

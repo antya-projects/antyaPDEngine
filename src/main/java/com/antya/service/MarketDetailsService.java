@@ -1,7 +1,8 @@
 package com.antya.service;
 
 import com.antya.service.dto.MarketDetailsDTO;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Service Interface for managing MarketDetails.
@@ -19,9 +20,10 @@ public interface MarketDetailsService {
     /**
      * Get all the marketDetails.
      *
+     * @param pageable the pagination information
      * @return the list of entities
      */
-    List<MarketDetailsDTO> findAll();
+    Page<MarketDetailsDTO> findAll(Pageable pageable);
 
     /**
      * Get the "id" marketDetails.

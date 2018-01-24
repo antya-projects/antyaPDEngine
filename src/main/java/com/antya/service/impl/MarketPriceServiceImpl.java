@@ -7,12 +7,11 @@ import com.antya.service.dto.MarketPriceDTO;
 import com.antya.service.mapper.MarketPriceMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing MarketPrice.
@@ -49,15 +48,15 @@ public class MarketPriceServiceImpl implements MarketPriceService {
     /**
      * Get all the marketPrices.
      *
+     * @param pageable the pagination information
      * @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
-    public List<MarketPriceDTO> findAll() {
+    public Page<MarketPriceDTO> findAll(Pageable pageable) {
         log.debug("Request to get all MarketPrices");
-        return marketPriceRepository.findAll().stream()
-            .map(marketPriceMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
+        return marketPriceRepository.findAll(pageable)
+            .map(marketPriceMapper::toDto);
     }
 
     /**
