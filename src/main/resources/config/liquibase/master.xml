@@ -16,5 +16,6 @@
     <include file="config/liquibase/changelog/20180123145042_added_entity_constraints_Market.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180123145044_added_entity_constraints_MarketDetails.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180123145043_added_entity_constraints_MarketPrice.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180123145040_added_entity_constraints_Coin.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
