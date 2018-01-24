@@ -4,10 +4,15 @@ import com.codahale.metrics.annotation.Timed;
 import com.antya.service.ExchangeService;
 import com.antya.web.rest.errors.BadRequestAlertException;
 import com.antya.web.rest.util.HeaderUtil;
+import com.antya.web.rest.util.PaginationUtil;
 import com.antya.service.dto.ExchangeDTO;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -79,14 +84,17 @@ public class ExchangeResource {
     /**
      * GET  /exchanges : get all the exchanges.
      *
+     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of exchanges in body
      */
     @GetMapping("/exchanges")
     @Timed
-    public List<ExchangeDTO> getAllExchanges() {
-        log.debug("REST request to get all Exchanges");
-        return exchangeService.findAll();
-        }
+    public ResponseEntity<List<ExchangeDTO>> getAllExchanges(Pageable pageable) {
+        log.debug("REST request to get a page of Exchanges");
+        Page<ExchangeDTO> page = exchangeService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/exchanges");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
 
     /**
      * GET  /exchanges/:id : get the "id" exchange.

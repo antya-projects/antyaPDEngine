@@ -1,7 +1,8 @@
 package com.antya.service;
 
 import com.antya.service.dto.CoinAttributesDTO;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Service Interface for managing CoinAttributes.
@@ -19,9 +20,10 @@ public interface CoinAttributesService {
     /**
      * Get all the coinAttributes.
      *
+     * @param pageable the pagination information
      * @return the list of entities
      */
-    List<CoinAttributesDTO> findAll();
+    Page<CoinAttributesDTO> findAll(Pageable pageable);
 
     /**
      * Get the "id" coinAttributes.

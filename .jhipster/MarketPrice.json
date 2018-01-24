@@ -29,7 +29,7 @@
     "changelogDate": "20180123145043",
     "entityTableName": "market_price",
     "dto": "mapstruct",
-    "pagination": "no",
+    "pagination": "infinite-scroll",
     "service": "serviceImpl",
     "jpaMetamodelFiltering": false,
     "angularJSSuffix": "mySuffix",

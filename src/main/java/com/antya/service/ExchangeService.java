@@ -1,7 +1,8 @@
 package com.antya.service;
 
 import com.antya.service.dto.ExchangeDTO;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Service Interface for managing Exchange.
@@ -19,9 +20,10 @@ public interface ExchangeService {
     /**
      * Get all the exchanges.
      *
+     * @param pageable the pagination information
      * @return the list of entities
      */
-    List<ExchangeDTO> findAll();
+    Page<ExchangeDTO> findAll(Pageable pageable);
 
     /**
      * Get the "id" exchange.

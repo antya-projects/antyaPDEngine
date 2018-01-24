@@ -23,7 +23,7 @@
     "changelogDate": "20180123145041",
     "entityTableName": "coin_attributes",
     "dto": "mapstruct",
-    "pagination": "no",
+    "pagination": "infinite-scroll",
     "service": "serviceImpl",
     "jpaMetamodelFiltering": false,
     "angularJSSuffix": "mySuffix",

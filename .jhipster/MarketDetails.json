@@ -53,7 +53,7 @@
     "changelogDate": "20180123145044",
     "entityTableName": "market_details",
     "dto": "mapstruct",
-    "pagination": "no",
+    "pagination": "infinite-scroll",
     "service": "serviceImpl",
     "jpaMetamodelFiltering": false,
     "angularJSSuffix": "mySuffix",
